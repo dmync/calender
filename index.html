@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+  
+  <div class="calendarContainer">
+    <div class="calendarHeader">
+      <button id="btnPreviousYear"><i class="fas fa-angle-double-left"></i></button>
+      <button id="btnPreviousMonth"><i class="fas fa-angle-left"></i></button>
+
+      <span id="labelMonth"></span>
+      <span id="labelYear"></span>
+
+      <button id="btnNextMonth"><i class="fas fa-angle-right"></i></button>
+      <button id="btnNextYear"><i class="fas fa-angle-double-right"></i></button>
+    </div>
+
+    <div class="weekDaysRow">
+      <div class="weekendDay">Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div class="weekendDay">Sat</div>
+    </div>
+
+    <div id="datesGrid" class="daysGrid"></div>
+
+    <div class="poyaIndicator">
+      <span class="poyaBox"></span> Poya Day
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+

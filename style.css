@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.calendarContainer {
+  background: #e6eded;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgb(9 97 97 / 20%);
+  width: 515px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calendarHeader i {
+  background-color: #62ced3;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.calendarHeader i:hover {
+  background-color: #03bdc2;
+}
+
+#labelMonth,
+#labelYear {
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekDaysRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.weekendDay {
+  color: #ff0015;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 5px;
+  padding-top: 10px;
+}
+
+.daysGrid div {
+  padding: 10px 0;
+  border-radius: 10px;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.daysGrid div:hover {
+  background: #7da3a9;
+  color: white;
+}
+
+.todayDay {
+  background: #a4dce4;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #6e99a0;
+}
+
+.poyaDay {
+  background: #568f26;
+  color: #050505;
+  font-weight: bold;
+  border: 1px solid #70d48b;
+}
+
+.blankDay {
+  pointer-events: none;
+  color: #bbb;
+}
+
+.weekendDay {
+  color: #ff0015;
+}
+
+.poyaIndicator {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.poyaBox {
+  width: 15px;
+  height: 15px;
+  background: #568f26;
+  border: 1px solid #70d48b;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+@media (max-width: 400px) {
+  body {
+    height: auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+    align-items: flex-start;
+  }
+
+  .calendarContainer {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .calendarHeader {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 1rem;
+  }
+
+  .calendarHeader button {
+    padding: 6px 10px;
+    font-size: 1rem;
+  }
+
+  #labelMonth,
+  #labelYear {
+    min-width: 70px;
+    font-size: 1.1rem;
+  }
+
+  .weekDaysRow,
+  .daysGrid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  }
+
+  .weekDaysRow {
+    font-size: 0.85rem;
+  }
+
+  .daysGrid div {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .daysGrid div:hover {
+    background: #fcb69f;
+    color: white;
+  }
+
+  .poyaIndicator {
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .poyaBox {
+    width: 12px;
+    height: 12px;
+  }
+}
