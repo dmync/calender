@@ -2,45 +2,89 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calendar</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sri Lanka Calendar</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 </head>
 
 <body>
-  
-  <div class="calendarContainer">
-    <div class="calendarHeader">
-      <button id="btnPreviousYear"><i class="fas fa-angle-double-left"></i></button>
-      <button id="btnPreviousMonth"><i class="fas fa-angle-left"></i></button>
 
-      <span id="labelMonth"></span>
-      <span id="labelYear"></span>
+    <div class="calendarContainer">
 
-      <button id="btnNextMonth"><i class="fas fa-angle-right"></i></button>
-      <button id="btnNextYear"><i class="fas fa-angle-double-right"></i></button>
+        <!-- Calendar Navigation -->
+        <div class="calendarHeader">
+
+            <button id="btnPreviousYear" aria-label="Previous Year">
+                <i class="fas fa-angle-double-left"></i>
+            </button>
+
+            <button id="btnPreviousMonth" aria-label="Previous Month">
+                <i class="fas fa-angle-left"></i>
+            </button>
+
+            <!-- Month Selector -->
+            <select id="labelMonth" class="dateSelector"></select>
+
+            <!-- Year Selector -->
+            <select id="labelYear" class="dateSelector yearSelector"></select>
+
+            <button id="btnNextMonth" aria-label="Next Month">
+                <i class="fas fa-angle-right"></i>
+            </button>
+
+            <button id="btnNextYear" aria-label="Next Year">
+                <i class="fas fa-angle-double-right"></i>
+            </button>
+
+        </div>
+
+        <!-- Week Days -->
+        <div class="weekDaysRow">
+
+            <div class="weekendDay">Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div class="weekendDay">Sat</div>
+
+        </div>
+
+        <!-- Calendar Dates -->
+        <div id="datesGrid" class="daysGrid"></div>
+
+        <!-- Holiday Legend -->
+        <div class="poyaIndicator">
+
+            <span class="poyaBox"></span>
+            <span>Official Poya Day</span>
+
+            <span class="poyaBox" style="background:#f4a261"></span>
+            <span>Public Holiday</span>
+
+            <span class="poyaBox" style="background:#b39ddb"></span>
+            <span>Bank Holiday</span>
+
+            <span class="poyaBox" style="background:#81c9e8"></span>
+            <span>Mercantile Holiday</span>
+
+            <span class="poyaBox estimatedBox"></span>
+            <span>Estimated Holiday</span>
+
+        </div>
+
     </div>
 
-    <div class="weekDaysRow">
-      <div class="weekendDay">Sun</div>
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thu</div>
-      <div>Fri</div>
-      <div class="weekendDay">Sat</div>
-    </div>
-
-    <div id="datesGrid" class="daysGrid"></div>
-
-    <div class="poyaIndicator">
-      <span class="poyaBox"></span> Poya Day
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 
