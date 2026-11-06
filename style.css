@@ -1,193 +1,382 @@
+
+/* --------------------------------
+   GENERAL
+-------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f8f8;
 }
 
 button {
-  border: none;
-  background: none;
-  cursor: pointer;
+    border: none;
+    background: none;
+    cursor: pointer;
 }
+
+
+/* --------------------------------
+   CALENDAR CONTAINER
+-------------------------------- */
 
 .calendarContainer {
-  background: #e6eded;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgb(9 97 97 / 20%);
-  width: 515px;
-  padding: 20px;
-  overflow: hidden;
+    background: #e6eded;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgb(9 97 97 / 20%);
+    width: 515px;
+    max-width: 100%;
+    padding: 20px;
+    overflow: hidden;
 }
 
+
+/* --------------------------------
+   CALENDAR HEADER
+-------------------------------- */
+
 .calendarHeader {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calendarHeader i {
-  background-color: #62ced3;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  transition: background-color 0.3s ease;
+    background-color: #62ced3;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
 }
 
 .calendarHeader i:hover {
-  background-color: #03bdc2;
+    background-color: #03bdc2;
 }
 
-#labelMonth,
-#labelYear {
-  min-width: 100px;
-  text-align: center;
-  font-weight: bold;
+
+/* --------------------------------
+   MONTH AND YEAR DROPDOWNS
+-------------------------------- */
+
+.dateSelector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: none;
+    background-color: transparent;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+
+    cursor: pointer;
+    text-align: center;
+
+    padding: 8px 30px 8px 12px;
+    border-radius: 8px;
+
+    outline: none;
+    transition: all 0.3s ease;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-position: right 10px center;
 }
+
+.dateSelector:hover {
+    background-color: #d0e5e5;
+}
+
+.dateSelector:focus {
+    background-color: white;
+    box-shadow: 0 0 0 2px #62ced3;
+}
+
+.dateSelector option {
+    background-color: #e6eded;
+    color: #333;
+    font-weight: normal;
+}
+
+#labelMonth {
+    min-width: 145px;
+}
+
+#labelYear {
+    min-width: 105px;
+}
+
+
+/* --------------------------------
+   WEEK DAYS
+-------------------------------- */
 
 .weekDaysRow {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: bold;
-  color: #555;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
 }
 
 .weekendDay {
-  color: #ff0015;
+    color: #ff0015;
 }
 
+
+/* --------------------------------
+   CALENDAR DATES
+-------------------------------- */
+
 .daysGrid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  gap: 5px;
-  padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 5px;
+    padding-top: 10px;
 }
 
 .daysGrid div {
-  padding: 10px 0;
-  border-radius: 10px;
-  transition: background 0.3s, color 0.3s;
-  cursor: pointer;
+    padding: 10px 0;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
 .daysGrid div:hover {
-  background: #7da3a9;
-  color: white;
+    background: #7da3a9;
+    color: white;
 }
+
+
+/* --------------------------------
+   TODAY
+-------------------------------- */
 
 .todayDay {
-  background: #a4dce4;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 2px 8px #6e99a0;
+    background: #a4dce4;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #6e99a0;
 }
+
+
+/* --------------------------------
+   POYA DAYS
+-------------------------------- */
 
 .poyaDay {
-  background: #568f26;
-  color: #050505;
-  font-weight: bold;
-  border: 1px solid #70d48b;
+    background: #568f26;
+    color: #050505;
+    font-weight: bold;
+    border: 1px solid #70d48b;
 }
+
+/* Official Poya Day */
+
+.officialPoya {
+    background: #568f26;
+    color: #050505;
+    border: 1px solid #70d48b;
+}
+
+/* Estimated Full Moon */
+
+.estimatedPoya {
+    background: #f5d98b;
+    color: #333;
+    border: 1px dashed #c99a32;
+}
+
+
+/* --------------------------------
+   PUBLIC HOLIDAYS
+-------------------------------- */
+
+.publicHoliday {
+    background-color: #f4a261;
+    color: #222;
+    font-weight: bold;
+    border: 1px solid #e58b45;
+}
+
+
+/* --------------------------------
+   BANK HOLIDAYS
+-------------------------------- */
+
+.bankHoliday {
+    background-color: #b39ddb;
+    color: #222;
+    font-weight: bold;
+    border: 1px solid #9575cd;
+}
+
+
+/* --------------------------------
+   MERCANTILE HOLIDAYS
+-------------------------------- */
+
+.mercantileHoliday {
+    background-color: #81c9e8;
+    color: #222;
+    font-weight: bold;
+    border: 1px solid #55afd4;
+}
+
+
+/* --------------------------------
+   ESTIMATED HOLIDAYS
+-------------------------------- */
+
+.estimatedHoliday {
+    background-color: #ffe0a3;
+    color: #333;
+    font-weight: bold;
+    border: 1px dashed #d5a13d;
+}
+
+
+/* --------------------------------
+   EMPTY CALENDAR CELLS
+-------------------------------- */
 
 .blankDay {
-  pointer-events: none;
-  color: #bbb;
+    pointer-events: none;
+    color: #bbb;
 }
 
-.weekendDay {
-  color: #ff0015;
-}
+
+/* --------------------------------
+   HOLIDAY LEGEND
+-------------------------------- */
 
 .poyaIndicator {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #444;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .poyaBox {
-  width: 15px;
-  height: 15px;
-  background: #568f26;
-  border: 1px solid #70d48b;
-  display: inline-block;
-  border-radius: 4px;
+    width: 15px;
+    height: 15px;
+    background: #568f26;
+    border: 1px solid #70d48b;
+    display: inline-block;
+    border-radius: 4px;
+    flex-shrink: 0;
 }
 
+/* Estimated Full Moon Legend */
+
+.estimatedBox {
+    background: #f5d98b;
+    border: 1px dashed #c99a32;
+}
+
+
+/* --------------------------------
+   MOBILE RESPONSIVE
+-------------------------------- */
+
 @media (max-width: 400px) {
-  body {
-    height: auto;
-    padding: 20px;
-    background: linear-gradient(to bottom, #ffecd2, #fcb69f);
-    align-items: flex-start;
-  }
 
-  .calendarContainer {
-    width: 100%;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  }
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px;
+        background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+        align-items: flex-start;
+    }
 
-  .calendarHeader {
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 1rem;
-  }
+    .calendarContainer {
+        width: 100%;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
 
-  .calendarHeader button {
-    padding: 6px 10px;
-    font-size: 1rem;
-  }
+    .calendarHeader {
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 1rem;
+    }
 
-  #labelMonth,
-  #labelYear {
-    min-width: 70px;
-    font-size: 1.1rem;
-  }
+    .calendarHeader button {
+        padding: 6px 10px;
+        font-size: 1rem;
+    }
 
-  .weekDaysRow,
-  .daysGrid {
-    grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
-  }
+    .calendarHeader i {
+        padding: 7px 9px;
+        font-size: 0.95rem;
+    }
 
-  .weekDaysRow {
-    font-size: 0.85rem;
-  }
+    .dateSelector {
+        font-size: 1rem;
+        padding: 7px 25px 7px 8px;
+    }
 
-  .daysGrid div {
-    padding: 8px 0;
-    font-size: 0.9rem;
-    border-radius: 8px;
-  }
+    #labelMonth {
+        min-width: 120px;
+    }
 
-  .daysGrid div:hover {
-    background: #fcb69f;
-    color: white;
-  }
+    #labelYear {
+        min-width: 90px;
+    }
 
-  .poyaIndicator {
-    font-size: 0.85rem;
-    gap: 6px;
-  }
+    .weekDaysRow,
+    .daysGrid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3px;
+    }
 
-  .poyaBox {
-    width: 12px;
-    height: 12px;
-  }
+    .weekDaysRow {
+        font-size: 0.85rem;
+    }
+
+    .daysGrid div {
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .daysGrid div:hover {
+        background: #fcb69f;
+        color: white;
+    }
+
+    .poyaIndicator {
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+
+    .poyaBox {
+        width: 12px;
+        height: 12px;
+    }
+
 }
